@@ -63,7 +63,7 @@ class RecipeInMenuFragment : Fragment() {
         if (it != null) {
             textTitle.setText(it.title)
             textLink.setText(it.link)
-            textInstruction.setText(it.instruction)
+          
             imageRecipe.setImageURI(it.picture?.toUri())
 
         }
