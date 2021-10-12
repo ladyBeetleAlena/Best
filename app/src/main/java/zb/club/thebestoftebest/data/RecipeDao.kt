@@ -161,7 +161,7 @@ interface RecipeDao {
 
 
     @Query("SELECT * FROM recipebytag WHERE idRecipes = :id")
-    fun getMealForRecipe(id: Long): LiveData<List<RecipeByTag>>
+    fun getTagForRecipe(id: Long): LiveData<List<RecipeByTag>>
 
 
 
@@ -170,7 +170,7 @@ interface RecipeDao {
     fun deleteIngridientForRecipe(id: Long)
 
     @Query("DELETE  FROM recipebytag WHERE idRecipes = :id")
-    fun deleteMealForRecipe(id: Long)
+    fun deleteTagForRecipe(id: Long)
 
 
 
@@ -189,8 +189,7 @@ interface RecipeDao {
     }
 
 
-    @Insert(onConflict = OnConflictStrategy.IGNORE)
-    suspend fun insertRecipeBySeason(recipeToSeason: RecipeToSeason)
+
 
 
 

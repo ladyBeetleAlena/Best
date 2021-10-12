@@ -20,8 +20,8 @@ class ViewModelAddRecipe(application: Application) : AndroidViewModel(applicatio
     var category: ArrayList<String> = ArrayList()
     var picture: Bitmap? = null
     var allRecipe: LiveData<List<Recipe>>
-    var calegoryUnic: LiveData<List<String>>
-    var mealUnic: LiveData<List<String>>
+
+    var tagUnic: LiveData<List<String>>
     var productUnic: LiveData<List<String>>
     var getLastRecipe: LiveData<Recipe>
     init {
@@ -30,8 +30,8 @@ class ViewModelAddRecipe(application: Application) : AndroidViewModel(applicatio
         ).recipeDao()
         repository = RecipeRepository(recipeDao)
         allRecipe = repository.allRecipe
-        calegoryUnic = repository.categoryUnic
-        mealUnic = repository.mealUnic
+
+        tagUnic = repository.tagUnic
         productUnic = repository.productUnic
         getLastRecipe = repository.getLastRecipe
 
@@ -123,11 +123,9 @@ class ViewModelAddRecipe(application: Application) : AndroidViewModel(applicatio
         return repository.ingredientByID(id)
     }
     fun mealByRecipe(id: Long): LiveData<List<RecipeByTag>>{
-        return repository.getMealForRecipe(id)
+        return repository.getTagForRecipe(id)
     }
-    fun catForRecipe(id: Long): LiveData<List<RecipeByCategory>>{
-        return repository.getCategoryForRecipe(id)
-    }
+
 
     fun updateRecipe(recipe: Recipe) {
         viewModelScope.launch(Dispatchers.IO) {
@@ -137,11 +135,7 @@ class ViewModelAddRecipe(application: Application) : AndroidViewModel(applicatio
 
 
 
-   fun updateRecipeInstruction(id:Long, instruction:String){
-       viewModelScope.launch(Dispatchers.IO) {
-           repository.updateRecipeInstruction(id,instruction)
-       }
-   }
+
 
 
 
@@ -177,14 +171,9 @@ class ViewModelAddRecipe(application: Application) : AndroidViewModel(applicatio
     }
 
 
-    fun deleteMealForRecipe(id: Long) {
+    fun deleteTagForRecipe(id: Long) {
         viewModelScope.launch(Dispatchers.IO) {
-            repository.delMealForRecipe(id)
-        }
-    }
-    fun delCatForRecipe(id: Long) {
-        viewModelScope.launch(Dispatchers.IO) {
-            repository.delCatForRecipe(id)
+            repository.deleteTag(id)
         }
     }
 
@@ -193,15 +182,12 @@ class ViewModelAddRecipe(application: Application) : AndroidViewModel(applicatio
 
 
 
-    fun addRecipeByCategory(recipeByCategory: RecipeByCategory) {
-        viewModelScope.launch(Dispatchers.IO) {
-            repository.addRecipeByCategory(recipeByCategory)
-        }
-    }
 
-    fun addRecipeByMeal(recipeByTag: RecipeByTag) {
+
+
+    fun addRecipeByTag(recipeByTag: RecipeByTag) {
         viewModelScope.launch(Dispatchers.IO) {
-            repository.addRecipeByMeal(recipeByTag)
+            repository.addRecipeByTag(recipeByTag)
         }
     }
 
@@ -213,19 +199,14 @@ class ViewModelAddRecipe(application: Application) : AndroidViewModel(applicatio
             repository.delrecipe(recipe)
         }
     }
-    fun delMeal(id:Long) {
+    fun delTag(id:Long) {
         viewModelScope.launch(Dispatchers.IO) {
-            repository.deleteMeal(id)
+            repository.deleteTag(id)
         }
 
     }
 
-    fun delCat(id:Long) {
-        viewModelScope.launch(Dispatchers.IO) {
-            repository.deleteCategory(id)
-        }
 
-    }
 
 
 

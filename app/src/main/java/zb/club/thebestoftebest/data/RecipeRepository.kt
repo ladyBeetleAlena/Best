@@ -6,8 +6,8 @@ import java.util.concurrent.Executors
 
 class RecipeRepository(private val recipeDao: RecipeDao) {
 
-    val mealUnic:LiveData<List<String>> = recipeDao.getMealsUnic()
-    val categoryUnic:LiveData<List<String>> = recipeDao.getCategoryUnic()
+    val tagUnic:LiveData<List<String>> = recipeDao.getTagUnic()
+
     val productUnic:LiveData<List<String>> = recipeDao.getProductUnic()
 
     val allMenu: LiveData<List<Menu>> = recipeDao.getAllMenu()
@@ -190,33 +190,25 @@ class RecipeRepository(private val recipeDao: RecipeDao) {
     }
 
 
-    fun getRecipeByMeal(meal: String): LiveData<List<Recipe>> {
-        return recipeDao.getRecipeByMeal(meal)
+
+
+
+
+    fun getTagForRecipe(id: Long): LiveData<List<RecipeByTag>> {
+
+        return recipeDao.getTagForRecipe(id)
     }
 
-
-
-
-    fun getMealForRecipe(id: Long): LiveData<List<RecipeByTag>> {
-
-        return recipeDao.getMealForRecipe(id)
-    }
-
-    fun getCategoryForRecipe(id: Long): LiveData<List<RecipeByCategory>> {
-        return recipeDao.getCategoryForRecipe(id)
-    }
 
     suspend fun delIngrForRecipe(id: Long) {
         recipeDao.deleteIngridientForRecipe(id)
     }
 
     suspend fun delMealForRecipe(id: Long) {
-        recipeDao.deleteMealForRecipe(id)
+        recipeDao.deleteTagForRecipe(id)
     }
 
-    suspend fun delCatForRecipe(id: Long) {
-        recipeDao.deleteCategoryForRecipe(id)
-    }
+
     suspend fun delCurrentMenu(currentMenu: CurrentMenu) {
         recipeDao.deleteCurrentMenu(currentMenu)
     }
@@ -264,9 +256,6 @@ class RecipeRepository(private val recipeDao: RecipeDao) {
     }
 
 
-    suspend fun updateRecipeInstruction(id:Long, instruction:String){
-        recipeDao.updateRecipeInstruction(id, instruction)
-    }
 
 
 
@@ -303,13 +292,11 @@ class RecipeRepository(private val recipeDao: RecipeDao) {
 
 
 
-    suspend fun addRecipeByMeal(recipeByTag: RecipeByTag) {
-        recipeDao.insertRecipeByMeal(recipeByTag)
+    suspend fun addRecipeByTag(recipeByTag: RecipeByTag) {
+        recipeDao.insertRecipeByTag(recipeByTag)
     }
 
-    suspend fun addRecipeByCategory(recipeByCategory: RecipeByCategory) {
-        recipeDao.insertRecipeByCategory(recipeByCategory)
-    }
+
 
     suspend fun delrecipe(recipe: Recipe) {
         recipeDao.deleteRecipe(recipe)
@@ -364,10 +351,9 @@ class RecipeRepository(private val recipeDao: RecipeDao) {
 
 
 
-    suspend fun deleteCategory(id:Long){recipeDao.deleteCategory(id)}
 
-    suspend fun deleteMeal(id:Long) {
-        recipeDao.deleteMeal(id)
+    suspend fun deleteTag(id:Long) {
+        recipeDao.deleteTagbyId(id)
     }
 
 }

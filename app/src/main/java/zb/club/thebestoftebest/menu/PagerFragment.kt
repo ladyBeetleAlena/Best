@@ -67,7 +67,7 @@ class PagerFragment(
         if(args.mealThis == "all recipe"){model.allRecipe.observe(viewLifecycleOwner,{adapter.setData(it)})}
 
 
-        model.getRecipeByMeal(args.mealThis).observe(viewLifecycleOwner, { adapter.setData(it) })
+        model.allRecipe.observe(viewLifecycleOwner, { adapter.setData(it) })
 
 
         recyclerViewItemMenu.layoutManager = LinearLayoutManager(requireContext())

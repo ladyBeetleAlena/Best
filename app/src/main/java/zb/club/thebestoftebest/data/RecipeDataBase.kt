@@ -5,7 +5,7 @@ import androidx.room.Database
 import androidx.room.Room
 import androidx.room.RoomDatabase
 
-@Database(entities = arrayOf(Meal::class, ShoppingAdding::class, ShoppingListWithDay::class, Things::class, ShoppList::class, Recipe::class,  Serving::class, Ingredients::class, RecipeByCategory::class, RecipeByTag::class, RecipeToSeason::class,  Menu::class, MenuTemp::class, Setting::class, CurrentMenu::class, Instruction::class), version = 1, exportSchema = false)
+@Database(entities = arrayOf(Instructions::class,Meal::class, ShoppingAdding::class, ShoppingListWithDay::class, Things::class, ShoppList::class, Recipe::class,  Serving::class, Ingredients::class, RecipeByCategory::class, RecipeByTag::class, RecipeToSeason::class,  Menu::class, MenuTemp::class, Setting::class, CurrentMenu::class), version = 1, exportSchema = false)
 public abstract class RecipeDataBase: RoomDatabase() {
 
     abstract fun recipeDao(): RecipeDao
@@ -23,7 +23,7 @@ public abstract class RecipeDataBase: RoomDatabase() {
                 val instance = Room.databaseBuilder(
                     context.applicationContext,
                     RecipeDataBase::class.java,
-                    "repsdata.db"
+                    "recpsdata.db"
                 ).build()
                 INSTANCE = instance
                 // return instance

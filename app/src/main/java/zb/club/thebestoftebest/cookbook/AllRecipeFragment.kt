@@ -24,7 +24,7 @@ class AllRecipeFragment : Fragment(),AdapterForAllRecipe.OnItemLongClickListener
     private var originalMode : Int? = null
     var recipeId: Long = 0
     var newrecipe: Recipe? = null
-    var emptyRecipe = Recipe(0, "new recipe", null, null, null, false)
+    var emptyRecipe = Recipe(0, "new recipe", null, null, false)
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?

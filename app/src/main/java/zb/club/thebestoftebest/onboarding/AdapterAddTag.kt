@@ -28,7 +28,7 @@ class AdapterAddTag(var tagList: MutableList<RecipeByTag>, val listener : Adapte
 
     override fun onBindViewHolder(holder: TagHolder, position: Int) {
         val currentItem = tagList[position]
-       holder.itemView.textViewMealAdd.setText(currentItem.recipeByMeal)
+       holder.itemView.textViewMealAdd.setText(currentItem.tag)
     }
 
     override fun getItemCount(): Int {

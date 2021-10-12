@@ -34,7 +34,7 @@ class ViewModelMenu (application: Application) : AndroidViewModel(application){
         ).recipeDao()
         repository = RecipeRepository(recipeDao)
         getTitleMenu = repository.getTitleMenu
-        allMeal = repository.mealUnic
+        allMeal = repository.tagUnic
 
         tempMenu = repository.allMenuTemp
         allRecipe = repository.allRecipe
@@ -117,9 +117,7 @@ class ViewModelMenu (application: Application) : AndroidViewModel(application){
 
 
 
-    fun getRecipeByMeal(meal: String): LiveData<List<Recipe>>{
-        return repository.getRecipeByMeal(meal)
-    }
+
 
 
     fun insertTempMenu(temp: MenuTemp) {

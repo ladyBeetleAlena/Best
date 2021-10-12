@@ -153,9 +153,9 @@ class AddRecipeFragment : Fragment(), AdaptorAddIngridient.OnItemIngrClickListen
                 }
             }
         })
-        saveTag.setOnClickListener { val newMealByRecipe = RecipeByTag(
+        saveTag.setOnClickListener { val newTagByRecipe = RecipeByTag(
             0, numberRecipe, insertTag.text.toString())
-        model.addRecipeByMeal(newMealByRecipe)
+        model.addRecipeByTag(newTagByRecipe)
         insertTag.setText("")}
 
         saveIng.setOnClickListener { val newIng = Ingredients(
@@ -184,7 +184,7 @@ class AddRecipeFragment : Fragment(), AdaptorAddIngridient.OnItemIngrClickListen
 
 
 
-        model.mealUnic.observe(viewLifecycleOwner, {listMeal ->  arrayAdapterForMeal = ArrayAdapter(requireContext(), R.layout.drop_down_product, listMeal)
+        model.tagUnic.observe(viewLifecycleOwner, {listTag ->  arrayAdapterForMeal = ArrayAdapter(requireContext(), R.layout.drop_down_product, listTag)
             arrayAdapterForMeal.setNotifyOnChange(true)
             insertTag.setAdapter(arrayAdapterForMeal)})
 
@@ -327,7 +327,7 @@ class AddRecipeFragment : Fragment(), AdaptorAddIngridient.OnItemIngrClickListen
 
     override fun deleteMealClick(position: Int) {
         val itemClick = adapterTag.getMealByPosition(position)
-       model.delMeal(itemClick.idRecipeByTag)
+       model.delTag(itemClick.idRecipeByTag)
     }
 
 

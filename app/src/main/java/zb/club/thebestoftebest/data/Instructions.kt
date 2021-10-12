@@ -8,13 +8,12 @@ import androidx.room.PrimaryKey
     ForeignKey(
         entity = Recipe::class,
         parentColumns = ["id"],
-        childColumns = ["idrecipe"],
+        childColumns = ["idRecipe"],
         onDelete = ForeignKey.CASCADE,
         onUpdate = ForeignKey.CASCADE
     )
-
 ])
-data class Instruction(
+data class Instructions(
     @PrimaryKey(autoGenerate = true)
     val id: Long,
     val idRecipe: Long,
