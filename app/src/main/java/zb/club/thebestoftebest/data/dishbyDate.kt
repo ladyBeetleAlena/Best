@@ -1,0 +1,14 @@
+package zb.club.thebestoftebest.data
+
+import android.os.Parcelable
+import kotlinx.android.parcel.Parcelize
+
+@Parcelize
+data class dishbyDate(
+                          val recipeId: Long,
+                          val titleRecipe: String,
+                          val meal: String,
+                          val childrenServings: Int,
+                          val adultServing:Int,
+                          val childAdultK: Double = 0.0,
+                          val picture:String): Parcelable

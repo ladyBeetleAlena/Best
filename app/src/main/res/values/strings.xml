@@ -1,0 +1,41 @@
+<resources>
+    <string name="app_name">TheBestOfTeBest</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="menu">menu</string>
+    <string name="cooking_book">cooking book</string>
+    <string name="menu_planning">menu planning</string>
+    <string name="about_app">about app</string>
+    <string name="shopping_pack">shopping pack</string>
+    <string name="g">gr.</string>
+    <string name="nullweight">0</string>
+    <string name="ingredient">ingredient</string>
+    <string name="edit_product">Edit product</string>
+    <string name="save">save</string>
+    <string name="input_product">input product</string>
+    <string name="update_product">This product will be updated in all recipes where it used</string>
+    <string name="category">category</string>
+    <string name="meal">meal</string>
+    <string name="edit_meal">edit meal</string>
+    <string name="this_meal_will_be_edit_in_all_recipes_where_it_was_used">This meal will be edit in all recipes, where it was used</string>
+    <string name="edit_category">edit category</string>
+    <string name="this_category_will_be_edit_in_all_recipes_where_it_used">This category will be edit in all recipes, where it used</string>
+    <string name="enter_category">enter category</string>
+    <string name="enter_meal">enter meal</string>
+    <string name="enter_menu_title">Enter menu title</string>
+    <string name="create_new_menu">Create menu</string>
+    <string name="pick_the_date_for_menu">Pick start date</string>
+    <string name="number_of_servings_for_children">Number of servings for children</string>
+    <string name="number_of_servings_for_adults">Number of servings for adults</string>
+    <string name="could_you_enter_a_title_for_the_menu">Choose you menu from list or create new menu</string>
+    <string name="how_many_servings_will_we_cook">How many servings will we cook?</string>
+    <string name="children_portion">children portion</string>
+
+    <string name="adult_child">adult/child</string>
+    <string name="_0_7">0.7</string>
+    <string name="create_menu">Create new menu with start date and set calendar connection or just create menu without calendar connection or choose menu from your db</string>
+    <string name="children_portion_from_adult_portion">Children portion from adult portion</string>
+    <string name="adult_portion">adult portion</string>
+    <string name="_2">2</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+</resources>

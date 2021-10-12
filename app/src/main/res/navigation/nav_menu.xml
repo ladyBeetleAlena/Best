@@ -1,0 +1,189 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    app:startDestination="@id/todayFragment">
+
+    <fragment
+        android:id="@+id/todayFragment"
+        android:name="zb.club.thebestoftebest.readymenu.TodayFragment"
+        android:label="today"
+        tools:layout="@layout/fragment_today" >
+        <action
+            android:id="@+id/action_todayFragment_to_showMenuByTitleFragment"
+            app:destination="@id/showMenuByTitleFragment" />
+        <action
+            android:id="@+id/action_todayFragment_to_startPlanningFragment"
+            app:destination="@id/startPlanningFragment" />
+        <action
+            android:id="@+id/action_todayFragment_to_recipeInMenuFragment"
+            app:destination="@id/recipeInMenuFragment" />
+        <action
+            android:id="@+id/action_todayFragment_to_applyMenuFragment"
+            app:destination="@id/applyMenuFragment" />
+        <action
+            android:id="@+id/action_todayFragment_to_aboutAppFragment"
+            app:destination="@id/aboutAppFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/startPlanningFragment"
+        android:name="zb.club.thebestoftebest.menu.StartPlanningFragment"
+        android:label="start planning"
+        tools:layout="@layout/fragment_start_planning" >
+        <action
+            android:id="@+id/action_startPlanningFragment_to_createMenuFragment"
+            app:destination="@id/createMenuFragment"
+            app:popUpTo="@id/startPlanningFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/aboutAppFragment"
+        android:name="zb.club.thebestoftebest.about.AboutAppFragment"
+        android:label="about app"
+        tools:layout="@layout/fragment_about_app" >
+        <action
+            android:id="@+id/action_aboutAppFragment_to_todayFragment"
+            app:destination="@id/todayFragment" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/addRecipeFragment"
+        android:name="zb.club.thebestoftebest.cookbook.AddRecipeFragment"
+        android:label="add recipe"
+        tools:layout="@layout/fragment_add_recipe" >
+        <argument
+            android:name="recipeFoEdit"
+            app:argType="zb.club.thebestoftebest.data.Recipe" />
+        <action
+            android:id="@+id/action_addRecipeFragment_to_allRecipeFragment2"
+            app:destination="@id/allRecipeFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/allRecipeFragment"
+        android:name="zb.club.thebestoftebest.cookbook.AllRecipeFragment"
+        android:label="all recipe"
+        tools:layout="@layout/fragment_all_recipe" >
+        <argument
+            android:name="idRecipe"
+            app:argType="integer" />
+        <action
+            android:id="@+id/action_allRecipeFragment_to_addRecipeFragment2"
+            app:destination="@id/addRecipeFragment" />
+        <action
+            android:id="@+id/action_allRecipeFragment_to_resipeShowFragment"
+            app:destination="@id/resipeShowFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/createMenuFragment"
+        android:name="zb.club.thebestoftebest.menu.CreateMenuFragment"
+        android:label="create menu"
+        tools:layout="@layout/fragment_create_menu" >
+        <argument
+            android:name="namberadult"
+            app:argType="integer" />
+        <argument android:name="namberchild"
+            app:argType="integer" />
+        <argument
+            android:name="childadult"
+            app:argType="string" />
+        <argument
+            android:name="titlemenu"
+            app:argType="string" />
+        <action
+            android:id="@+id/action_createMenuFragment_to_shoppingListFragment2"
+            app:destination="@id/shoppingListFragment2" />
+        <action
+            android:id="@+id/action_createMenuFragment_to_pagerFragment"
+            app:destination="@id/pagerFragment"
+            app:popUpTo="@id/createMenuFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/monthFragment"
+        android:name="zb.club.thebestoftebest.menu.MonthFragment"
+        android:label="menu"
+        tools:layout="@layout/fragment_month" />
+    <fragment
+        android:id="@+id/resipeShowFragment"
+        android:name="zb.club.thebestoftebest.cookbook.ResipeShowFragment"
+        android:label="recipe"
+        tools:layout="@layout/fragment_resipe_show" >
+        <argument
+            android:name="recid"
+            app:argType="zb.club.thebestoftebest.data.Recipe" />
+        <action
+            android:id="@+id/action_resipeShowFragment_to_allRecipeFragment"
+            app:destination="@id/allRecipeFragment" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/shoppingListFragment2"
+        android:name="zb.club.thebestoftebest.shoppinglist.ShoppingListFragment"
+        android:label="ShoppingListFragment" />
+    <fragment
+        android:id="@+id/pagerFragment"
+        android:name="zb.club.thebestoftebest.menu.PagerFragment"
+        android:label="PagerFragment" >
+        <argument
+            android:name="mealThis"
+            app:argType="string" />
+        <argument
+            android:name="calendarDay"
+            app:argType="long" />
+        <argument
+            android:name="menuTitle"
+            app:argType="string" />
+        <argument
+            android:name="childrenServing"
+            app:argType="integer" />
+        <argument
+            android:name="adultServing"
+            app:argType="integer" />
+        <argument
+            android:name="day"
+            app:argType="integer" />
+        <argument
+            android:name="childAdultK"
+            app:argType="string" />
+    </fragment>
+    <fragment
+        android:id="@+id/allMenuFragment"
+        android:name="zb.club.thebestoftebest.readymenu.AllMenuFragment"
+        android:label="AllMenuFragment" />
+    <fragment
+        android:id="@+id/showMenuByTitleFragment"
+        android:name="zb.club.thebestoftebest.readymenu.ShowMenuByTitleFragment"
+        android:label="ShowMenuByTitleFragment" >
+        <argument
+            android:name="titleMenu"
+            app:argType="string" />
+        <action
+            android:id="@+id/action_showMenuByTitleFragment_to_applyMenuFragment"
+            app:destination="@id/applyMenuFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/dayMenuFragment"
+        android:name="zb.club.thebestoftebest.readymenu.DayMenuFragment"
+        android:label="DayMenuFragment" >
+        <argument
+            android:name="day"
+            app:argType="integer" />
+    </fragment>
+    <fragment
+        android:id="@+id/recipeInMenuFragment"
+        android:name="zb.club.thebestoftebest.readymenu.RecipeInMenuFragment"
+        android:label="RecipeInMenuFragment" >
+        <argument android:name="dishbydate"
+            app:argType="zb.club.thebestoftebest.data.dishbyDate" />
+    </fragment>
+    <fragment
+        android:id="@+id/applyMenuFragment"
+        android:name="zb.club.thebestoftebest.menu.ApplyMenuFragment"
+        android:label="fragment_apply_menu"
+        tools:layout="@layout/fragment_apply_menu" >
+        <argument
+            android:name="menuTitle"
+            app:argType="string" />
+        <action
+            android:id="@+id/action_applyMenuFragment_to_createMenuFragment"
+            app:destination="@id/createMenuFragment" />
+    </fragment>
+</navigation>
