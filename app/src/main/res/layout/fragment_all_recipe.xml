@@ -3,9 +3,9 @@
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto">
     <data>
-     <variable
-         name="allRecipeViewModel"
-         type="zb.club.thebestoftebest.cookbook.viewmodelcookbook.ViewModelAddRecipe" />
+        <variable
+            name="allRecipeViewModel"
+            type="zb.club.thebestoftebest.cookbook.viewmodelcookbook.ViewModelAddRecipe" />
     </data>
 
     <androidx.constraintlayout.widget.ConstraintLayout
@@ -19,6 +19,7 @@
             android:layout_width="match_parent"
             android:layout_height="0dp"
 
+            android:layout_marginBottom="54dp"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
@@ -29,7 +30,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginEnd="16dp"
-            android:layout_marginBottom="56dp"
+            android:layout_marginBottom="64dp"
             android:onClick="delete"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
@@ -37,9 +38,6 @@
             app:srcCompat="@drawable/ic_baseline_add_24" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
-
-
-
 
 
 
