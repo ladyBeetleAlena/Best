@@ -15,20 +15,28 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import zb.club.thebestoftebest.R
 import zb.club.thebestoftebest.data.Ingredients
+import zb.club.thebestoftebest.data.Instructions
 import zb.club.thebestoftebest.data.Recipe
 import zb.club.thebestoftebest.databinding.FragmentRecipeInMenuBinding
 import zb.club.thebestoftebest.onboarding.AdapterForRecipeInMenu
+import zb.club.thebestoftebest.onboarding.AdapterShowInstruction
 
 
 class RecipeInMenuFragment : Fragment() {
     private val args by navArgs<RecipeInMenuFragmentArgs>()
     private lateinit var model:ViewModelReadyMenu
-    lateinit var  textInstruction:TextView
+    lateinit var  recInstruction:RecyclerView
     lateinit var textLink: TextView
     lateinit var textTitle: TextView
     lateinit var imageRecipe: ImageView
      var listIngredient = mutableListOf<Ingredients>()
     lateinit var adapter: AdapterForRecipeInMenu
+
+    lateinit var reciclerInstruction:RecyclerView
+    lateinit var adapterInstruction: AdapterShowInstruction
+    var instList = mutableListOf<Instructions>()
+
+
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
@@ -40,7 +48,7 @@ class RecipeInMenuFragment : Fragment() {
         binding.lifecycleOwner = this
         binding.viewModelReadyMenu= model
         var recycler:RecyclerView = binding.reciclerForProductinRecipeMenu
-        textInstruction = binding.textViewInstructionRecipeMenu
+
         textLink = binding.textViewLincRecipeMenu
         textTitle = binding.textViewTitleRecipeMenu
         imageRecipe = binding.imageViewRecipeMenu
@@ -48,13 +56,19 @@ class RecipeInMenuFragment : Fragment() {
         adapter = AdapterForRecipeInMenu(listIngredient, args.dishbydate.adultServing, args.dishbydate.childrenServings, args.dishbydate.childAdultK)
         recycler.adapter=adapter
         recycler.layoutManager = LinearLayoutManager(requireContext())
+
+
+        reciclerInstruction = binding.recyclerViewInst
+        adapterInstruction = AdapterShowInstruction(instList)
+        reciclerInstruction.adapter = adapterInstruction
+        reciclerInstruction.layoutManager = LinearLayoutManager(requireContext())
         model.getIngredientByRecipeId(args.dishbydate.recipeId).observe(viewLifecycleOwner, {
             adapter.setData(it)
         })
         model.getRecipebyId(args.dishbydate.recipeId).observe(viewLifecycleOwner,{
             showRecipe(it)
         })
-
+        model.getInstructionForRecipe(args.dishbydate.recipeId).observe(viewLifecycleOwner, {adapterInstruction.setData(it)})
 
         return binding.root
 }

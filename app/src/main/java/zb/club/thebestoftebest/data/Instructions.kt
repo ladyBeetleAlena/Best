@@ -17,6 +17,6 @@ data class Instructions(
     @PrimaryKey(autoGenerate = true)
     val id: Long,
     val idRecipe: Long,
-    val text : String,
-    val picture: String
+    val text: String,
+    val picture: String? = null
 )

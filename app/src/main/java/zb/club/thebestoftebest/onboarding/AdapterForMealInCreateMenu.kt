@@ -6,8 +6,9 @@ import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import kotlinx.android.synthetic.main.product_line.view.*
 import zb.club.thebestoftebest.R
+import zb.club.thebestoftebest.data.Meal
 
-class AdapterForMealInCreateMenu (private var listenerMeal: AdapterForMealInCreateMenu.OnItemMealClickListener, private var mealList: MutableList<String>): RecyclerView.Adapter<AdapterForMealInCreateMenu.MealViewHolder>() {
+class AdapterForMealInCreateMenu (private var listenerMeal: AdapterForMealInCreateMenu.OnItemMealClickListener, private var mealList: MutableList<Meal>): RecyclerView.Adapter<AdapterForMealInCreateMenu.MealViewHolder>() {
     inner class MealViewHolder(itemView: View): RecyclerView.ViewHolder(itemView), View.OnClickListener{
         init {
             itemView.setOnClickListener(this)
@@ -31,7 +32,7 @@ class AdapterForMealInCreateMenu (private var listenerMeal: AdapterForMealInCrea
 
     override fun onBindViewHolder(holder: AdapterForMealInCreateMenu.MealViewHolder, position: Int) {
         val currentItem = mealList[position]
-        holder.itemView.textViewProductInLine.setText("Let's plan ${currentItem}")
+        holder.itemView.textViewProductInLine.setText("Let's plan ${currentItem.meal}")
 
 
     }
@@ -39,15 +40,15 @@ class AdapterForMealInCreateMenu (private var listenerMeal: AdapterForMealInCrea
     override fun getItemCount(): Int {
         return mealList.size
     }
-    fun setData(mealList: List<String>){
-        this.mealList = mealList as MutableList<String>
+    fun setData(mealList: List<Meal>){
+        this.mealList = mealList as MutableList<Meal>
         notifyDataSetChanged()
     }
 
     interface OnItemMealClickListener{
         fun onItemMealClick(position: Int)
     }
-    fun getMealAtPosition(position: Int): String {
+    fun getMealAtPosition(position: Int): Meal{
         return mealList[position]
     }
 }

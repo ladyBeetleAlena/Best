@@ -26,6 +26,7 @@ class ViewModelMenu (application: Application) : AndroidViewModel(application){
     var shoppingListfromCurrentMenu: LiveData<List<SoppingTemp>>
     var dayCurrentMenu: LiveData<List<DateForCurrentMenu>>
     val getShoppingList: LiveData<List<ShoppList>>
+    val getAllMeal:LiveData<List<Meal>>
 
 
     init {
@@ -43,6 +44,7 @@ class ViewModelMenu (application: Application) : AndroidViewModel(application){
         dayCurrentMenu = repository.getDayCurrentMenu
         shoppingListfromCurrentMenu = repository.shoppingListFromCurrent
         getShoppingList =  repository.getShoppingList
+        getAllMeal = repository.getAllMeal
 
     }
 
@@ -199,6 +201,17 @@ class ViewModelMenu (application: Application) : AndroidViewModel(application){
         }
     }
 
+
+    fun insertMeal(meal:Meal){
+        viewModelScope.launch(Dispatchers.IO) {
+        repository.insertMeal(meal)}
+    }
+
+
+     fun deletMeal(meal:Meal){
+        viewModelScope.launch(Dispatchers.IO) {
+        repository.deletMeal(meal)}
+    }
 
 
 

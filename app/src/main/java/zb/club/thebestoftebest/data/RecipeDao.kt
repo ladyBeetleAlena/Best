@@ -332,5 +332,26 @@ interface RecipeDao {
 
 
 
+    @Insert
+    suspend fun insertInstruction(inst:Instructions)
+
+    @Delete
+    suspend fun deleteInstruction(inst: Instructions)
+
+    @Query("SELECT * FROM instructions WHERE idRecipe = :idRecipe")
+    fun getInstructionForRecipe(idRecipe:Long):LiveData<List<Instructions>>
+
+    @Insert
+    suspend fun insertMeal(meal:Meal)
+
+    @Delete
+    suspend fun deletMeal(meal:Meal)
+
+    @Query("SELECT * FROM meal ORDER BY meal ASC")
+    fun getAllMeal():LiveData<List<Meal>>
+
+
+
+
 
 }

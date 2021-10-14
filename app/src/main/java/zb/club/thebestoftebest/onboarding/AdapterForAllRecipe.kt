@@ -71,7 +71,7 @@ class AdapterForAllRecipe(private val listener: OnItemLongClickListener, private
 
         holder.itemView.pictureFoodAllRec.clipToOutline = true
 
-        holder.itemView.setOnClickListener {  val action = AllRecipeFragmentDirections.actionAllRecipeFragmentToAddRecipeFragment2(currentItem)
+        holder.itemView.setOnClickListener {  val action = AllRecipeFragmentDirections.actionAllRecipeFragmentToResipeShowFragment(currentItem)
             holder.itemView.findNavController().navigate(action) }
     }
 

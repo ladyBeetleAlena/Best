@@ -36,6 +36,9 @@ class ViewModelReadyMenu (application: Application) : AndroidViewModel(applicati
 
     fun getMenuByTitle(title:String): LiveData<List<Menu>> { return repository.getMenuByTitleFoShow(title)}
 
+    fun getInstructionForRecipe(idRecipe:Long):LiveData<List<Instructions>>{
+        return repository.getInstructionForRecipe(idRecipe)
+    }
 
 
     fun deleteMenu(menu: Menu){

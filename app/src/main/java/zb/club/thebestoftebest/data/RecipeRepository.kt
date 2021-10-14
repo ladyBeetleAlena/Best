@@ -26,6 +26,9 @@ class RecipeRepository(private val recipeDao: RecipeDao) {
     val getStringThing:LiveData<List<String>> =recipeDao.getAllThingString()
     val getAdding:LiveData<List<ShoppingAdding>> = recipeDao.getAllAdding()
     val getLastRecipe: LiveData<Recipe> = recipeDao.getLastRecipe()
+    val getAllMeal:LiveData<List<Meal>> = recipeDao.getAllMeal()
+
+
 
     suspend fun insertThing(things: Things){
         recipeDao.insertThing(things)
@@ -355,5 +358,34 @@ class RecipeRepository(private val recipeDao: RecipeDao) {
     suspend fun deleteTag(id:Long) {
         recipeDao.deleteTagbyId(id)
     }
+
+
+
+
+    suspend fun insertInstruction(inst:Instructions){
+        recipeDao.insertInstruction(inst)
+    }
+
+
+    suspend fun deleteInstruction(inst: Instructions){
+        recipeDao.deleteInstruction(inst)
+    }
+
+
+    fun getInstructionForRecipe(idRecipe:Long):LiveData<List<Instructions>>{
+        return recipeDao.getInstructionForRecipe(idRecipe)
+    }
+
+
+    suspend fun insertMeal(meal:Meal){
+        recipeDao.insertMeal(meal)
+    }
+
+
+    suspend fun deletMeal(meal:Meal){
+        recipeDao.deletMeal(meal)
+    }
+
+
 
 }

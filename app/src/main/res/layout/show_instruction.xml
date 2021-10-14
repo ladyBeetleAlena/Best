@@ -6,7 +6,7 @@
     android:layout_height="wrap_content">
 
     <TextView
-        android:id="@+id/textViewItemsNumber"
+        android:id="@+id/textViewStep"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:textStyle="bold|italic"
@@ -14,40 +14,37 @@
         app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
-        android:id="@+id/textViewInstruction"
+        android:id="@+id/textViewTextInst"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:text="TextView"
-        app:layout_constraintEnd_toStartOf="@+id/imageViewbinInst"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/textViewItemsNumber" />
-
-    <ImageView
-        android:id="@+id/imageViewbinInst"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        app:layout_constraintBottom_toBottomOf="@+id/imageViewInstruction"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginEnd="8dp"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toTopOf="@+id/textViewInstruction"
-        app:srcCompat="@drawable/ic_baseline_delete_24" />
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textViewStep" />
 
     <ImageView
-        android:id="@+id/imageViewInstruction"
+        android:id="@+id/imageViewStepInst"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        app:layout_constraintEnd_toStartOf="@+id/imageViewbinInst"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginBottom="8dp"
+        app:layout_constraintBottom_toTopOf="@id/divider10"
+        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textViewInstruction"
+        app:layout_constraintTop_toBottomOf="@+id/textViewTextInst"
         app:srcCompat="@drawable/ic_round_blender_24" />
 
     <View
-        android:id="@+id/divider9"
+        android:id="@+id/divider10"
         android:layout_width="match_parent"
         android:layout_height="1dp"
-        android:layout_marginTop="8dp"
         android:background="?android:attr/listDivider"
         android:backgroundTint="@color/yellow_700"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/imageViewInstruction" />
+        app:layout_constraintStart_toStartOf="parent" />
 </androidx.constraintlayout.widget.ConstraintLayout>

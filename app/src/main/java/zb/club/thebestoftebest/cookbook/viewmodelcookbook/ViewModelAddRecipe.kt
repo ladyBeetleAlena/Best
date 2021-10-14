@@ -50,7 +50,25 @@ class ViewModelAddRecipe(application: Application) : AndroidViewModel(applicatio
         viewModelScope.launch(Dispatchers.IO) {repository.insertRecipe(recipe)}}
 
 
+     fun insertInstruction(inst:Instructions){
+        viewModelScope.launch(Dispatchers.IO) {
+            repository.insertInstruction(inst)
+        }
 
+    }
+
+
+    fun deleteInstruction(inst: Instructions){
+        viewModelScope.launch(Dispatchers.IO) {
+            repository.deleteInstruction(inst)
+        }
+
+    }
+
+
+    fun getInstructionForRecipe(idRecipe:Long):LiveData<List<Instructions>>{
+        return repository.getInstructionForRecipe(idRecipe)
+    }
 
 
 

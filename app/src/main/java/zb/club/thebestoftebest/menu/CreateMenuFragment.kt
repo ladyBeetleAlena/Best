@@ -23,10 +23,7 @@ import com.google.android.material.datepicker.MaterialDatePicker
 import com.google.android.material.dialog.MaterialAlertDialogBuilder
 import com.google.android.material.textfield.TextInputEditText
 import zb.club.thebestoftebest.R
-import zb.club.thebestoftebest.data.CurrentMenu
-import zb.club.thebestoftebest.data.DateForCurrentMenu
-import zb.club.thebestoftebest.data.Menu
-import zb.club.thebestoftebest.data.MenuTemp
+import zb.club.thebestoftebest.data.*
 import zb.club.thebestoftebest.databinding.FragmentCreateMenuBinding
 import zb.club.thebestoftebest.onboarding.AdapterForMealInCreateMenu
 import zb.club.thebestoftebest.onboarding.AdaptorInCreate
@@ -46,7 +43,7 @@ class CreateMenuFragment() : Fragment(), AdapterForMealInCreateMenu.OnItemMealCl
     lateinit var recyclerForChosenRecipe: RecyclerView
     val model:ViewModelMenu by activityViewModels()
     private val args by navArgs<CreateMenuFragmentArgs>()
-     var meal = mutableListOf<String>()
+     var meal = mutableListOf<Meal>()
     var calendarDay:Long = 0
     lateinit var date: TextView
     lateinit var allRecipe:TextView
@@ -71,7 +68,7 @@ class CreateMenuFragment() : Fragment(), AdapterForMealInCreateMenu.OnItemMealCl
         recyclerForChosenRecipe = binding.recyclercreatemenuAllDay
         adapterChoosenRecipe = AdaptorInCreate(this, tempMenuForDay)
 
-        model.allMeal.observe(viewLifecycleOwner, {
+        model.getAllMeal.observe(viewLifecycleOwner, {
             adapter.setData(it)
         })
         recycler.adapter = adapter
@@ -293,7 +290,7 @@ class CreateMenuFragment() : Fragment(), AdapterForMealInCreateMenu.OnItemMealCl
             val mealForDay = adapter.getMealAtPosition(position)
             val createMealInDayForRecycler =
                 CreateMenuFragmentDirections.actionCreateMenuFragmentToPagerFragment(
-                    mealForDay,
+                    mealForDay.meal,
                     calendarDay,
                     args.titlemenu,
                     args.namberchild,
